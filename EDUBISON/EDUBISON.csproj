@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BNFParser\BNFParser.csproj">
+      <Project>{5ea8db17-0d70-4467-81fa-b4704ee7ca22}</Project>
+      <Name>BNFParser</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
