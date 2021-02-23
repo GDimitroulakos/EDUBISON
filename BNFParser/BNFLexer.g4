@@ -21,6 +21,12 @@ DECLSTOP : '%%' {
 					Type = BNFLexer.SEPARATOR;					
 				} 
 		   ;
+PERC : '%' ;
+TOKEN : 'token';
+LEFT : 'left';
+RIGHT : 'right';
+START : 'start';
+DECLSYMBOL : [a-zA-Z][a-zA-Z0-9_]* { Type = BNFLexer.SYMBOL ; };
 IGNORE_DECL : .  ;
 DECL_SPACE :[ \r\n\t]+ ->skip
 			 ;

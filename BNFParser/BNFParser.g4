@@ -20,8 +20,26 @@ alternatives : derivation ( OR derivation? )*
 derivation : (CHARACTERLITERAL | SYMBOL)+ 
 		   ;
 
-declarations : (IGNORE_DECL | DECL_SPACE )*			   
+declarations : ( switch | (IGNORE_DECL | DECL_SPACE ) )*
 			   ;
+
+switch :     token_switch
+		   | start_switch
+		   | left_switch
+           | right_switch
+		   ;
+
+token_switch : PERC TOKEN SYMBOL*
+			   ;
+
+start_switch : PERC START SYMBOL
+			   ;
+
+left_switch : PERC LEFT SYMBOL*
+			  ;
+
+right_switch : PERC RIGHT SYMBOL*
+			  ;
 
 definitions : IGNORE_DEF
 			  ;
