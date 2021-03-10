@@ -27,11 +27,12 @@ switch :     token_switch
 		   |  code_switch
 		   ;
 
-token_switch : PERC token_switch_ID SYMBOL*
+token_switch : PERC token_switch_ID SYMBOL+
 			   ;
 
-code_switch : PERC CODE codequalifier '{' CODE_FRAGMENT  '}'
-			 | OPENCODEDEL  CODE_FRAGMENT  CLOSECODEDEL
+code_switch : PERC CODE codequalifier OB CODE_FRAGMENT  CB	#CodeSwitchQualifier
+			 | OPENCODEDEL  CODE_FRAGMENT  CLOSECODEDEL		#CodeSwitch
+			 | OPENCODEDEL  CLOSECODEDEL					#CodeSwitchEmpty
 			 ;
 
 // CODE_FRAGMENT : it is a fragment of text representing code in the host language which ultimately 
